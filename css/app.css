@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light');
 
-body {overflow-x: hidden;}
+body {overflow-x: hidden;font-family: 'Space Mono', monospace;}
 
 
 .hero-full-screen {
@@ -282,9 +282,10 @@ button {
 }
 
 #content-section-1 h1 {
-  font-weight: 600;
-  font-style: italic;
-  font-size:90px;
+  font-weight: bolder;
+  font-family: 'Space Mono', monospace;
+  font-size:50px;
+  text-transform: uppercase;
   color:red;
 }
 
@@ -301,7 +302,7 @@ button {
 }
 
 #content-section-1 li {
-  line-height: 45px;
+  line-height: 60px;
 }
 
 #content-section-2 {
@@ -334,8 +335,7 @@ button {
 
 #content-section-3 a {
   font-weight: 600;
-  font-style: italic;
-  font-size:50px;
+  font-size:40px;
   color:red;
   text-decoration:underline;
 }
