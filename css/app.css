@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light');
 
-body {overflow-x: hidden;font-family: 'Space Mono', monospace;}
+body {overflow-x: hidden;
+  font-family: 'Space Mono', monospace;
+}
 
 
 .hero-full-screen {
@@ -32,9 +34,6 @@ body {overflow-x: hidden;font-family: 'Space Mono', monospace;}
   z-index:3;
 }
 
-.fill {
-
-}
 
 .middle-content h1 {
   text-transform:uppercase;
@@ -43,15 +42,13 @@ body {overflow-x: hidden;font-family: 'Space Mono', monospace;}
   width:100%;
   /* transform: translate(50%,50%); */
   position: relative;
-
   color:##4FA58A;
   margin: 0;
-
   /*Animation*/
-
   animation: glitch3 2.5s infinite;
 }
 
+/* Applys styles to each h1 and it's animation */
 .middle-content h1:nth-child(2) {
   color: #67f3da;
   animation: glitch2 2.5s infinite;
@@ -228,35 +225,20 @@ body {overflow-x: hidden;font-family: 'Space Mono', monospace;}
   }
 }
 
-
 .middle-content h2 {
   color: black;
   font-size:20px;
   margin-bottom:100px;
 }
 
-.middle-content img {
-  margin-right:50px;
-}
-
-button {
-  background-color: red;
-  border: none;
-  color: white;
-  padding: 15px 25px;
-  text-align: center;
-  font-size: 30px;
-  font-weight:600;
-  cursor: pointer;
-  text-decoration: underline;
-}
-
+/* Global style for content section */
 .contentSec {
   padding-top:5em;
   padding-bottom:5em;
   overflow:hidden;
 }
 
+/* Uses foundation grid system, added styles to adjust width */
 .row {
     max-width: 100vh;
     margin-right: auto;
@@ -268,6 +250,8 @@ button {
     -ms-flex-flow: row wrap;
     flex-flow: row wrap;
 }
+
+/* Header styles ends here, styles for content containers below begins */
 
 #content-section-1 img {
   position:absolute;
@@ -341,13 +325,18 @@ button {
   text-decoration:underline;
 }
 
+#content-section-3 a:hover {
+text-decoration:line-through;
+}
+
+
 #content-section-4 {
   background-color: red;
   width:100%;
   height:500px;
 }
 
-
+/* Positions gifs in bottom of container, on either side of content */
 .gif{
     width:480px;
     height:386px;
@@ -369,12 +358,14 @@ button {
     bottom:0;
 }
 
+/* Centers Twitter timeline */
 .twitter-timeline {
   position:absolute;
   margin-left:auto;
   margin-right:auto;
 }
 
+/* Styles for a footer I ran out of time to add */
 footer {
   width:100%;
   height:auto;
@@ -398,7 +389,7 @@ footer {
 
   #content-section-3 a {
     /* font-weight: 600; */
-    font-size:25px;
+    font-size:20px;
     color:red;
     text-decoration:underline;
   }
@@ -424,4 +415,13 @@ footer {
   #content-section-1 h1 {
     font-size:25px;
   }
+
+  /* Need to find a better looking solution for smaller screens */
+  .gif{
+    display:none;
+  }
+  .gif2{
+    display: none;
+  }
+
 }

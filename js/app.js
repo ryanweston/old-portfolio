@@ -1,5 +1,6 @@
 
 $(document).ready(function() {
+	
  	//Runs grained function (grained.js) in header container.
 	grained('#header', {});
 
