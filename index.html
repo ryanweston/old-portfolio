@@ -1,63 +1,162 @@
-<!doctype html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ryan Weston</title>
-    <link rel="stylesheet" href="css/foundation.css">
-    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
-    <link rel="stylesheet" href="css/app.css">
-  </head>
+<html>
+<head>
+    <title>threejs - models</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://use.typekit.net/kao0uud.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
 
-  <!-- Runs override script for Twitter widget CSS styles -->
-  <body onload="paint()">
+    
+    
+    <script src="three.js"></script>
+    <script src="GLTFLoader.js"></script>
+    <canvas id="myCanvas"></canvas>
+    <script>
 
-    <div id="header" class="hero-full-screen">
-      <div class="middle-content">
-        <h1>Ryan  Weston</h1>
-        <h1>Ryan  Weston</h1>
-        <h1>Ryan  Weston</h1>
-      </div>
-    </div>
+    var renderer,
+    	scene,
+    	camera,
+    	myCanvas = document.getElementById('myCanvas');
 
-    <div id="content-section-3" data-magellan-target="content-section" class="contentSec row column medium-2">
-    <p>hi, i'm a student web dev & designer from the uk, i've been making websites
-      for 2+ years helping small businesses to help create professional
-      and effective online presences. I am also currently taking freelance work, if
-      you'd like to know more you can contact me <a href="#">here</a>.</p>
-     <!-- Face positioned on the left side of container -->
-    <img src="poontang.png" alt="my face :D">
-    </div>
+    //RENDERER
+    renderer = new THREE.WebGLRenderer({
+      canvas: myCanvas, 
+      alpha: true,
+      antialias: true
+    });
+    renderer.setClearColor( 0x000000, 0 );
+    // renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
 
-    <div id="content-section-1" data-magellan-target="content-section" class="contentSec row column medium-2">
-    <ul>
-      <li><h1>client work</h1></li>
-      <li><a href="http://redpanda-restaurant.co.uk">red panda restaurant</a></li>
-      <li><a href="http://scobleconstruction.co.uk">scoble construction</a></li>
-      <li><a href="#">digital beehive</a></li>
-      <li><h1>fun fun fun</h1></li>
-      <li><a href="http://ryanweston.github.io/pollution">{POLLUTION}</a></li>
-      <li><a href="http://ryanweston.github.io/starwarskaraoke">star wars karaoke</a></li>
-      <li><a href="#">unfinished meme</a></li>
-    </ul>
-    <!-- Face positioned on the right side of container -->
-    <img src="poontang.png" alt="my face :D">
-    </div>
+    //CAMERA
+    camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 0.1, 500 );
+    
+    //SCENE
+    scene = new THREE.Scene();
 
-    <div id="content-section-2">
-      <div class=" contentSec row column medium-2">
-        <div class="gif"></div>
-        <div class="gif2"></div>
-        <a class="twitter-timeline" href="https://twitter.com/ryanlweston?ref_src=twsrc%5Etfw"  data-chrome="nofooter noborders noheaders transparent" data-tweet-limit="1" data-width="600">Tweets By Me</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-      </div>
-    </div>
+    //LIGHTS
+    var light = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(light);
 
-    <script src="grained.js"></script>
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/vendor/what-input.js"></script>
-    <script src="js/vendor/foundation.js"></script>
-    <script src="js/app.js"></script>
-  </body>
+    var light2 = new THREE.PointLight(0xffffff, 0.5);
+    scene.add(light2);
+  
+    var loader = new THREE.GLTFLoader();
+
+    loader.load('out.glb', handle_load);
+
+    var mesh;
+
+    function handle_load(gltf) {
+
+        console.log(gltf);
+        mesh = gltf.scene;
+        console.log(mesh.children[0]);
+        mesh.children[0].material = new THREE.MeshLambertMaterial();
+		scene.add( mesh );
+        mesh.position.z = -0.5;
+    }
+
+
+    //RENDER LOOP
+    render();
+
+    var delta = 0;
+    var prevTime = Date.now();
+
+    function render() {
+
+        delta += 0.1;
+
+        if (mesh) {
+        
+            mesh.rotation.y += 0.01;
+
+            //animation mesh
+            // mesh.morphTargetInfluences[ 0 ] = Math.sin(delta) * 20.0;
+        }
+
+    	renderer.render(scene, camera);
+
+    	requestAnimationFrame(render);
+    }
+
+    function updateCamera(ev) {
+    let div1 = document.getElementById("div1");
+	camera.position.z = -0.1 - window.scrollY / 250;
+}
+
+window.addEventListener( 'resize', onWindowResize, false );
+
+function onWindowResize(){
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+}
+
+window.addEventListener("scroll", updateCamera);
+
+    </script>
+    
+   
+
+    <div id="div1" class="page-wrapper">
+            
+       
+            <h1 class="title">RYAN<br> WESTON<br><span class="slogan">//DIGITAL CREATIVE</span></h1>
+            <!-- <div class="navigation">
+                <h1>.</h1><br>
+                <h1 class="active">.</h1><br>
+                <h1>.</h1>
+            </div> -->
+        </div>
+        <div class="about" id="about">
+                <p>Hi, I'm a student <span>web developer & designer</span> based in Plymouth, UK who specialises in creating online digital experiences. Have a project in mind?<span class="type"> Let me know!</span></p>
+        </div>
+        <div class="projects" id="projects">
+            
+                <img src="">
+            <ul>
+                    
+                    
+                <li class="item" data-image="assets\Capture.PNG">
+                    <h1>YOGAN YOGHURTS </h1>
+
+                       
+                    <br><p>//2019 - DESIGN, BRAND, DEVELOPMENT</p>
+                </li>
+                
+                <li class="item" data-image="assets\Capture.PNG">
+                    <h1>RED PANDA RESTAURANT </h1>
+
+                       
+                    <br><p>//2019 - DESIGN, BRAND, DEVELOPMENT</p>
+                </li>
+                
+                <li class="item" data-image="assets\Capture.PNG">
+                    <h1>DIGITAL BEEHIVE </h1>
+
+                       
+                    <br><p>//2019 - DESIGN, BRAND, DEVELOPMENT</p>
+                </li>
+                
+                <li class="item" data-image="assets\Capture.PNG">
+                        <h1>STAR WARS KARAOKE </h1>
+
+                       
+                        <br><p>//2019 - DESIGN, BRAND, DEVELOPMENTS</p>
+                </li>
+                
+            </ul>
+        </div>
+        <footer>
+            <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+            <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+            <a href="#"><h1> <i class="fas fa-file-download"> </i>  VIEW RESUME</h1></a>
+        </footer>
+        <script src="js\script.js"></script>
+</body>
 </html>

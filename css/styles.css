@@ -1,0 +1,295 @@
+
+body {
+  overflow-x: hidden;
+  /* overflow-y: scroll; */
+  padding: 0;
+  margin: 0!important;
+  font-family: 'Work Sans', sans-serif;
+  box-sizing: border-box;
+  background-color:black;
+}
+canvas {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index:1;
+  height:100%;
+}
+
+.page-wrapper {
+  padding: 0px;
+  /* margin: 48px 48px; */
+  /* margin-left:48px;
+  margin-right:48px; */
+  /* position: absolute;
+  left: 0;
+  top: 0; */
+  height:100%;
+  width:100vw;
+  /* width: calc(100% - 2*48px); */
+  word-wrap: break-word;
+  z-index:2;
+  background-color:black;
+}
+
+/* MOBILE STYLES */
+.slogan { 
+  font-family: input-serif, serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size:0.2em!important;
+  font-weight: 100!important;
+  color:yellow;
+  -webkit-text-stroke: 0px white;
+  -webkit-text-fill-color: white;
+  line-height: 30px;
+  font-style:italic;
+}
+.title { 
+  color:white;
+  /* width:100%; */
+font-size:4.1em;
+-webkit-text-stroke: 2px white;
+-webkit-text-fill-color: transparent;
+font-weight: 900;
+line-height: 90%;
+padding-top:40%;
+padding-left:7%;
+}
+.navigation { 
+  position:fixed;
+  top:50%;
+  right:10px;
+  margin:0;
+  text-align:right;
+  z-index:13;
+}
+.about { 
+  margin:0;
+  width:100%;
+  background-color: black;
+  /* text-align:center; */
+}
+.about p { 
+  font-size:1.5em;
+  padding-top:10%;
+  padding-left: 20%;
+  padding-right:15%;
+  padding-bottom:20%;
+  text-transform: uppercase;
+  font-weight: 700;
+  color:white;
+  word-wrap:break-word;  
+}
+.about span { 
+  -webkit-text-stroke: 1px white;
+-webkit-text-fill-color: transparent;
+}
+  /* animation for typing effect */
+  @keyframes typing { from { width: 0; } }
+  @keyframes blink-caret { 50% { border-color: transparent; } }
+  @-webkit-keyframes typing { from { width: 0; } }
+  @-webkit-keyframes blink-caret { 50% { border-color: transparent; } }
+  .type {
+    border-right: .1em solid white;
+    overflow: hidden;
+    animation: typing 7s steps(13, end),
+               blink-caret .5s step-end infinite alternate;
+    -webkit-animation: typing 7s steps(13, end),
+               blink-caret .5s step-end infinite alternate;
+  }
+
+  .projects { 
+    position: relative;
+    margin:0;
+    width:100%;
+    background-color: black;
+    text-align:center;
+    padding-top:10%;
+    /* padding-left: 20%;
+    padding-right:10%; */
+    padding-bottom:10%; 
+  }
+  .projects li h1 { 
+    line-height:0;
+    color:white;
+    font-size:1.2em;
+    text-decoration: underline;
+    padding:0;
+    margin:0;
+  }
+  .projects li p { 
+    font-family: input-serif, serif;
+    font-weight: 200;
+    font-style: normal;
+    padding:0;
+    margin:0;
+    color:white;
+    font-size:0.7em!important;
+    font-style:italic;
+
+  }
+  .projects li { 
+    margin-top:30px;
+    z-index:5;
+    position: relative;
+    /* color:white;
+    font-size:4em;
+    text-decoration: underline; */
+  }
+  .projects ul { 
+    display:relative;
+    list-style: none;
+    padding:0;
+    margin:0;
+  }
+  
+  img {
+    position: absolute;
+    width: 30%;
+    object-fit: contain;
+    transform: translateX(-80%) translateY(-80%);
+    top: 50%;
+    left: 50%;
+   z-index:10;
+  }
+
+   /* FOOTER STYLES SECTION */
+   footer { 
+    text-align:center;
+    margin:0;
+    width:100%;
+  
+    /* text-align:center; */
+    padding-top:20%;
+    /* padding-left: 20%;
+    padding-right:10%; */
+    padding-bottom:5%;
+}
+footer a { 
+  color:white;
+  text-decoration: none;
+}
+footer h1 { 
+font-size:1.5em;
+}
+
+
+/* Medium devices (tablets, 567px and up) */
+@media (min-width: 567px) { 
+
+          .slogan { 
+            line-height: 50px;
+          }
+          
+          .title { 
+          font-size:5em;
+          padding-top:30%;
+          padding-left:15%;
+          }
+          
+          /* NAVIGATION STYLES SECTION */
+          .navigation { 
+            top:50%;
+          }
+          .navigation h1 { 
+            color: white; font-size:1em;font-family: 'Work Sans', sans-serif;margin:0;opacity:0.3;
+          }
+          .active { 
+            text-decoration: line-through;
+          }
+          
+          /* ABOUT SECTION STYLES */
+          .about p { 
+            font-size:1.5em;
+            padding-left: 17%;
+            padding-right:17%;
+            color:white;
+          }
+          
+          /* PROJECT STYLES SECTION */
+          
+          .projects li h1 { 
+            color:white;
+            font-size:2em;
+            text-decoration: underline;
+          }
+          .projects li p { 
+            line-height:0;
+            font-size:1em;
+          }
+          .projects li { 
+            margin-top:50px;
+            z-index:5;
+            position: relative;
+            /* color:white;
+            font-size:4em;
+            text-decoration: underline; */
+          }
+          
+         
+ }
+
+/* Small devices (landscape phones, 768px and up) */
+@media (min-width: 768px) {  
+          .title {
+            padding-top:30%;
+            
+            font-size:7em;
+          }
+
+          .about p { 
+            font-size:2.5em;
+            padding-top:10%;
+            padding-left: 20%;
+            padding-right: 15%;
+            padding-bottom:10%;
+            text-transform: uppercase;
+            font-weight: 700;
+            color:white;
+            
+          }
+
+          .projects li h1 { 
+            font-size:3em;
+            line-height:normal;
+          }
+          .projects li p { 
+            font-size:1em;
+          }
+        }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+          .title {
+            padding-top:20%;
+            padding-left:10%!important;
+            font-size:9em;
+          }
+          .projects li p { 
+            font-size:1em!important;
+          }
+          .slogan { 
+          font-size:0.1em!important;
+          }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+          .title {
+            padding-top:10%;
+            font-size:15em;
+            padding-left:17%!important;
+          }
+          .about p { 
+            font-size:4em; 
+          }
+          .projects li h1 { 
+            font-size:4.5em;
+          }
+ }
