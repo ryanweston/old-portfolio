@@ -32,23 +32,27 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     //CAMERA
-    camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 0.1, 500 );
-    
+    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 10000);
+    camera.position.y = 8;
+    camera.position.z = 35;
+    // camera.position
+
     //SCENE
     scene = new THREE.Scene();
 
     //LIGHTS
-    var light = new THREE.AmbientLight(0xffffff, 0.5);
-    scene.add(light);
+    // var light = new THREE.AmbientLight(0xffffff, 0.5);
+    // scene.add(light);
 
-    var light2 = new THREE.PointLight(0xffffff, 0.5);
+    var light2 = new THREE.PointLight(0xffffff, 0.8);
     scene.add(light2);
   
     var loader = new THREE.GLTFLoader();
 
-    loader.load('out.glb', handle_load);
+    loader.load('doinky.glb', handle_load);
 
     var mesh;
+    
 
     function handle_load(gltf) {
 
@@ -57,7 +61,8 @@
         console.log(mesh.children[0]);
         mesh.children[0].material = new THREE.MeshLambertMaterial();
 		scene.add( mesh );
-        mesh.position.z = -0.5;
+        // mesh.position.z = -20;
+       
     }
 
 
@@ -73,7 +78,8 @@
 
         if (mesh) {
         
-            mesh.rotation.y += 0.01;
+            mesh.rotation.y +=0.01;
+            // mesh.rotation.z += 0.01;
 
             //animation mesh
             // mesh.morphTargetInfluences[ 0 ] = Math.sin(delta) * 20.0;
@@ -84,10 +90,7 @@
     	requestAnimationFrame(render);
     }
 
-    function updateCamera(ev) {
-    let div1 = document.getElementById("div1");
-	camera.position.z = -0.1 - window.scrollY / 250;
-}
+    
 
 window.addEventListener( 'resize', onWindowResize, false );
 
@@ -98,7 +101,12 @@ function onWindowResize(){
 }
 
 window.addEventListener("scroll", updateCamera);
-
+function updateCamera(ev) {
+    let div1 = document.getElementById("div1");
+    // camera.position.z =   - window.scrollY / 0.1;
+    camera.updateProjectionMatrix();
+    console.log(camera.position.z);
+}
     </script>
     
    
@@ -107,49 +115,50 @@ window.addEventListener("scroll", updateCamera);
             
        
             <h1 class="title">RYAN<br> WESTON<br><span class="slogan">//DIGITAL CREATIVE</span></h1>
+            <a href="#" class="scroll"><h1>SCROLL DOWN</h1></a>
             <!-- <div class="navigation">
                 <h1>.</h1><br>
                 <h1 class="active">.</h1><br>
                 <h1>.</h1>
             </div> -->
-        </div>
+    </div>
         <div class="about" id="about">
                 <p>Hi, I'm a student <span>web developer & designer</span> based in Plymouth, UK who specialises in creating online digital experiences. Have a project in mind?<span class="type"> Let me know!</span></p>
         </div>
-        <div class="projects" id="projects">
-            
-                <!-- <img src=""> -->
-            <ul>
+            <div class="projects" id="projects">
+                
+                    <img src="">
+                <ul>
+                        
+                        
+                    <li class="item" data-image="assets\Capture.PNG">
+                        <a data-image="assets\Capture.PNG" href="http://ryanweston.me/for-sol"><h1>YOGAN YOGHURTS </h1></a>
+
+                        
+                        <br><p>//2019 - BRAND, UI/UX, DEVELOPMENT</p>
+                    </li>
                     
+                    <li class="item" data-image="assets\Capture.PNG">
+                        <a href="http://178.62.43.219/"><h1>RED PANDA RESTAURANT</h1></a>
+
+                        
+                        <br><p>//2015 - SOCIAL MEDIA, DESIGN, DEVELOPMENT</p>
+                    </li>
                     
-                <li class="item" data-image="assets\Capture.PNG">
-                    <a href="http://ryanweston.me/for-sol"><h1>YOGAN YOGHURTS </h1></a>
+                    <li class="item" data-image="assets\Capture.PNG">
+                        <a href="http://ryanweston.me/digitalbeehive"><h1>DIGITAL BEEHIVE </h1></a>
 
-                       
-                    <br><p>//2019 - BRAND, UI/UX, DEVELOPMENT</p>
-                </li>
-                
-                <li class="item" data-image="assets\Capture.PNG">
-                    <a href="http://178.62.43.219/"><h1>RED PANDA RESTAURANT</h1></a>
-
-                       
-                    <br><p>//2015 - SOCIAL MEDIA, DESIGN, DEVELOPMENT</p>
-                </li>
-                
-                <li class="item" data-image="assets\Capture.PNG">
-                    <a href="http://ryanweston.me/digitalbeehive"><h1>DIGITAL BEEHIVE </h1></a>
-
-                       
-                    <br><p>//2016 - DESIGN, BRAND, DEVELOPMENT</p>
-                </li>
-                
-                <li class="item" data-image="assets\Capture.PNG">
-                    <a href="https://ryanweston.me/starwarskaraoke/"><h1>STAR WARS KARAOKE</h1></a>
-                        <br><p>//2018 - DEVELOPMENT, PROJECT</p>
-                </li>
-                
-            </ul>
-        </div>
+                        
+                        <br><p>//2016 - DESIGN, BRAND, DEVELOPMENT</p>
+                    </li>
+                    
+                    <li class="item" data-image="assets\Capture.PNG">
+                        <a href="https://ryanweston.me/starwarskaraoke/"><h1>STAR WARS KARAOKE</h1></a>
+                            <br><p>//2018 - DEVELOPMENT, PROJECT</p>
+                    </li>
+                    
+                </ul>
+            </div>
         <footer>
             <a href="http://codepen.com/ryanlweston"><i class="fab fa-codepen fa-2x"></i></a>
             <a href="http://github.com/ryanweston"><i class="fab fa-github fa-2x"></i></a>
