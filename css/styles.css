@@ -35,6 +35,9 @@ canvas {
   /* width: calc(100% - 2*48px); */
   word-wrap: break-word;
   z-index:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   /* background-color:black; */
 }
 
@@ -59,19 +62,20 @@ font-size:4.1em;
 -webkit-text-fill-color: transparent;
 font-weight: 900;
 line-height: 90%;
-padding-top:40%;
-padding-left:7%;
+}
+svg {
+  fill:white;
 }
 .page-wrapper a { 
   font-family: 'Work Sans', sans-serif;
   color:white;
   position: absolute;
  font-weight: 100;
- font-size: 0.5em;
+ font-size: 0.4em;
  text-decoration: none;
-  left:45%;
+  /* left:45%; */
   bottom:0;
-  margin-bottom:20px;
+  margin-bottom:40px;
   text-align: center;
 }
 .navigation { 
@@ -81,6 +85,11 @@ padding-left:7%;
   margin:0;
   text-align:right;
   z-index:13;
+}
+.arrow {
+  margin-bottom:30px!important;
+  position: absolute;
+  bottom: 0px;
 }
 .about { 
   position: relative;
@@ -92,7 +101,7 @@ padding-left:7%;
 }
 .about p { 
   font-size:1.5em;
-  padding-top:10%;
+  padding-top:25%;
   padding-left: 20%;
   padding-right:15%;
   padding-bottom:20%;
@@ -214,8 +223,6 @@ font-size:1.5em;
           
           .title { 
           font-size:5em;
-          padding-top:30%;
-          padding-left:15%;
           }
           
           /* NAVIGATION STYLES SECTION */
@@ -260,15 +267,12 @@ font-size:1.5em;
 
 /* Small devices (landscape phones, 768px and up) */
 @media (min-width: 768px) {  
-          .title {
-            padding-top:30%;
-            
+          .title { 
             font-size:7em;
           }
 
           .about p { 
             font-size:2.5em;
-            padding-top:10%;
             padding-left: 20%;
             padding-right: 15%;
             padding-bottom:10%;
@@ -290,8 +294,6 @@ font-size:1.5em;
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
           .title {
-            padding-top:20%;
-            padding-left:10%!important;
             font-size:9em;
           }
           .projects li p { 
@@ -305,9 +307,7 @@ font-size:1.5em;
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
           .title {
-            padding-top:10%;
-            font-size:15em;
-            padding-left:17%!important;
+           font-size:15em;
           }
           .about p { 
             font-size:4em; 
