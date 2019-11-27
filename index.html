@@ -41,8 +41,8 @@
     scene = new THREE.Scene();
 
     //LIGHTS
-    // var light = new THREE.AmbientLight(0xffffff, 0.5);
-    // scene.add(light);
+    var light = new THREE.AmbientLight(0xffffff, 0.8);
+    scene.add(light);
 
     var light2 = new THREE.PointLight(0xffffff, 0.8);
     scene.add(light2);
@@ -58,8 +58,6 @@
 
         console.log(gltf);
         mesh = gltf.scene;
-        console.log(mesh.children[0]);
-        mesh.children[0].material = new THREE.MeshLambertMaterial();
 		scene.add( mesh );
         // mesh.position.z = -20;
        
