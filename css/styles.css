@@ -1,6 +1,6 @@
 
 body {
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   /* overflow-y: scroll; */
   padding: 0;
   margin: 0!important;
@@ -103,6 +103,7 @@ svg {
   /* text-align:center; */
 }
 .about p { 
+  text-align:left;
   font-size:1.5em;
   /* padding-top:25%; */
   padding-left: 20%;
@@ -111,7 +112,7 @@ svg {
   text-transform: uppercase;
   font-weight: 700;
   color:white;
-  word-wrap:break-word;  
+  /* word-wrap:break-word;   */
 }
 .about span { 
   -webkit-text-stroke: 1px white;
@@ -132,25 +133,25 @@ svg {
   }
 
   .projects { 
-    position: relative;
+    position:relative;
     margin:0;
     width:100%;
-    height:100%;
+    /* height:100%; */
     background-color: black;
     text-align:center;
-    /* padding-top:10%;
-    padding-left: 20%;
-    padding-right:10%;
-    padding-bottom:10%;  */
+    padding-top:5%;
+    padding-bottom:20%; 
     display:flex;
     align-items:center;
     justify-content:center;
   }
   .projects a { 
-    display:block;
+    position:relative;
     line-height:0;
     color:white;
-    font-size:1.2em;
+    font-family: 'Work Sans', sans-serif;
+    font-size:5em;
+    font-weight:700;
     padding:0;
     text-decoration: none;
   }
@@ -162,7 +163,7 @@ svg {
     font-family: input-serif, serif;
     font-weight: 200;
     font-style: normal;
-    padding-top:40px;
+    padding-top:10px;
     margin:0;
     color:white;
     font-size:0.7em!important;
@@ -172,13 +173,12 @@ svg {
   .projects li { 
     margin-top:30px;
     z-index:5;
-    /* position: relative; */
+    position:relative;
     /* color:white;
     font-size:4em;
     text-decoration: underline; */
   }
-  .projects ul { 
-    display:relative;
+  .projects ul {
     list-style: none;
     padding:0;
     margin:0;
@@ -208,23 +208,23 @@ footer h1 {
 font-size:1.5em;
 }
 
+img {
+  position: absolute;
+  z-index: -2;
+  width:70%;
+  visibility: hidden;
+  transform: translateX(-50%)  translateY(-50%)!important; 
+  pointer-events:none
+}
+
+img.visible {
+  visibility:visible;
+}
+
 
 /* Medium devices (tablets, 567px and up) */
 @media (min-width: 567px) { 
-  img {
-    position: absolute;
-    z-index: 1000;
-    visibility: visible!important;
-    transform: translateX(-50%)  translateY(-50%); 
-    pointer-events:none
-  }
-  img.visible {
-    visibility:hidden;
-  }
-  img.invisible {
-    visibility:visible!important;
-  }
-  }
+
 
           .slogan { 
             line-height: 50px;
@@ -253,24 +253,21 @@ font-size:1.5em;
           
           /* PROJECT STYLES SECTION */
           
-          .projects li h1 { 
-            font-size:2em;
-          }
+        
           .projects li p { 
             line-height:0em;
             font-size:1em;
           }
           .projects li { 
-            margin-top:50px;
+            /* margin-top:50px; */
             z-index:5;
-            position: relative;
             /* color:white;
             font-size:4em;
             text-decoration: underline; */
           }
           
-         
- }
+        }     
+ 
 
 /* Small devices (landscape phones, 768px and up) */
 @media (min-width: 768px) {  
@@ -289,8 +286,8 @@ font-size:1.5em;
             
           }
 
-          .projects li h1 { 
-            font-size:3em;
+          .projects li a { 
+            font-size:3.5em;
             line-height:normal;
           }
           .projects li p { 
@@ -309,6 +306,9 @@ font-size:1.5em;
           .slogan { 
           font-size:0.1em!important;
           }
+          .projects li a { 
+            font-size:4.5em;
+          }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -316,11 +316,11 @@ font-size:1.5em;
           .title {
            font-size:13em;
           }
-          .about p { 
+          .about p {
             font-size:3em; 
           }
-          .projects li h1 { 
-            font-size:3.5em;
+          .projects li a { 
+            font-size:5em;
           }
 
  }
