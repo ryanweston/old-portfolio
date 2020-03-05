@@ -5,14 +5,11 @@
     <link href="https://fonts.googleapis.com/css?family=Overpass+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link rel="stylesheet" href="https://use.typekit.net/kao0uud.css">
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
-<body>
-
-    
-    <script src="js\script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/three.js"></script>
     <script src="js/GLTFLoader.js"></script>
+</head>
+<body>
     <canvas id="myCanvas"></canvas>
     <script>
 
@@ -93,6 +90,8 @@
         camera.updateProjectionMatrix();
         console.log(camera.position.z);
     }
+
+    
     </script>
     
    
@@ -119,10 +118,9 @@
                 <ul>
                         
                         
-                    <li class="item" data-image="assets\Capture.PNG">
-                        
-                        <a href="http://ryanweston.me/for-sol" id="linkhover" onmouseover="delay()" ><h1>YOGAN YOGHURTS </h1></a>
-                            <img id="hoverimage" src="assets/Capture.PNG" />
+                    <li class="item">
+                        <a href="http://ryanweston.me/for-sol" class="imagehover"> YOGAN YOGHURTS <img class="invisible"src="assets\Capture.PNG"> </a>
+                            
                         
                         <br><p>//2019 - BRAND, UI/UX, DEVELOPMENT</p>
                     </li>
@@ -156,5 +154,6 @@
             <a href="http://instagram.com/rynwstn"><i class="fab fa-instagram fa-2x"></i></a>
             <a href="assets\cv.pdf"><h1> <i class="fas fa-file-download"> </i>  VIEW RESUME</h1></a>
         </footer>
+        <script src="js/script.js"></script>
 </body>
 </html>
