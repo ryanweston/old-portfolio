@@ -10,9 +10,9 @@
 <body>
 
     
-    
-    <script src="three.js"></script>
-    <script src="GLTFLoader.js"></script>
+    <script src="js\script.js"></script>
+    <script src="js/three.js"></script>
+    <script src="js/GLTFLoader.js"></script>
     <canvas id="myCanvas"></canvas>
     <script>
 
@@ -101,7 +101,7 @@
             
        
             <h1 class="title">RYAN<br> WESTON<br><span class="slogan">//DIGITAL CREATIVE</span></h1>
-            <a href="#" class="scroll"><h1>SCROLL DOWN</h1></a>
+            <a href="#about" class="scroll"><h1>SCROLL DOWN</h1></a>
             <a class="arrow" href="#whyvegan">
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg>   
             </a>
@@ -116,32 +116,33 @@
         </div>
             <div class="projects" id="projects">
                 
-                    <img src="">
                 <ul>
                         
                         
                     <li class="item" data-image="assets\Capture.PNG">
-                        <a data-image="assets\Capture.PNG" href="http://ryanweston.me/for-sol"><h1>YOGAN YOGHURTS </h1></a>
-
+                        
+                        <a href="http://ryanweston.me/for-sol" id="linkhover" onmouseover="delay()" ><h1>YOGAN YOGHURTS </h1></a>
+                            <img id="hoverimage" src="assets/Capture.PNG" />
                         
                         <br><p>//2019 - BRAND, UI/UX, DEVELOPMENT</p>
                     </li>
                     
                     <li class="item" data-image="assets\Capture.PNG">
                         <a href="http://178.62.43.219/"><h1>RED PANDA RESTAURANT</h1></a>
-
+                        <img src="">
                         
                         <br><p>//2015 - SOCIAL MEDIA, DESIGN, DEVELOPMENT</p>
                     </li>
                     
                     <li class="item" data-image="assets\Capture.PNG">
                         <a href="http://ryanweston.me/digitalbeehive"><h1>DIGITAL BEEHIVE </h1></a>
-
+                        <img src="">
                         
                         <br><p>//2016 - DESIGN, BRAND, DEVELOPMENT</p>
                     </li>
                     
                     <li class="item" data-image="assets\Capture.PNG">
+                        <img src="">
                         <a href="https://ryanweston.me/starwarskaraoke/"><h1>STAR WARS KARAOKE</h1></a>
                             <br><p>//2018 - DEVELOPMENT, PROJECT</p>
                     </li>
@@ -155,6 +156,5 @@
             <a href="http://instagram.com/rynwstn"><i class="fab fa-instagram fa-2x"></i></a>
             <a href="assets\cv.pdf"><h1> <i class="fas fa-file-download"> </i>  VIEW RESUME</h1></a>
         </footer>
-        <script src="js\script.js"></script>
 </body>
 </html>
